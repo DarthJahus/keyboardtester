@@ -9,6 +9,7 @@
 
 import wx
 import wx.xrc
+import wx.adv
 
 ###########################################################################
 ## Class keytest
@@ -17,7 +18,7 @@ import wx.xrc
 class keytest ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Keyboard Input Tester v0.2", pos = wx.DefaultPosition, size = wx.Size( 800,597 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER|wx.STAY_ON_TOP|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Keyboard Input Tester v0.3", pos = wx.DefaultPosition, size = wx.Size( 800,597 ), style = wx.CAPTION | wx.CLOSE_BOX | wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.Size( 800,330 ), wx.Size( 800,-1 ) )
 
@@ -1514,221 +1515,11 @@ class keytest ( wx.Frame ):
 	def onUI( self, event ):
 		event.Skip()
 
-
 	def onButton( self, event ):
 		event.Skip()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	def onKADE( self, event ):
 		event.Skip()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	def onLog( self, event ):
 		event.Skip()
@@ -1756,7 +1547,7 @@ class keytest ( wx.Frame ):
 class AboutBox ( wx.Dialog ):
 
 	def __init__( self, parent ):
-		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"About Keyboard Tester v0.2", pos = wx.DefaultPosition, size = wx.Size( 360,250 ), style = wx.CAPTION|wx.STAY_ON_TOP )
+		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"About Keyboard Tester v0.3", pos = wx.DefaultPosition, size = wx.Size(400, 300), style = wx.CAPTION|wx.STAY_ON_TOP )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -1770,11 +1561,17 @@ class AboutBox ( wx.Dialog ):
 		self.m_bitmap1 = wx.StaticBitmap( self.m_panel2, wx.ID_ANY, wx.Bitmap( u"resources/keyboard.png", wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer4.Add( self.m_bitmap1, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 10 )
 
-		self.m_staticText2 = wx.StaticText( self.m_panel2, wx.ID_ANY, u"A general purpose keyboard test utility\nby 10yard (a.k.a. Degenatrons).\n\nKADE software is open and is licensed under GNU GPL V3.", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText2 = wx.StaticText( self.m_panel2, wx.ID_ANY, u"A general purpose keyboard test utility by 10yard (a.k.a. Degenatrons).\nModified by Jahus (DarthJahus) to use ScanCodes instead of KeyCodes.\n\nKADE software is open and is licensed under GNU GPL V3.", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText2.Wrap( 340 )
-
 		bSizer4.Add( self.m_staticText2, 0, wx.ALL|wx.EXPAND, 5 )
 
+		# liens cliquables
+		link1 = wx.adv.HyperlinkCtrl(self.m_panel2, wx.ID_ANY, "GitHub Project", "https://github.com/10yard/keyboardtester")
+		link2 = wx.adv.HyperlinkCtrl(self.m_panel2, wx.ID_ANY, "UseScanCodes fork", "https://github.com/darthjahus/keyboardtester")
+		link3 = wx.adv.HyperlinkCtrl(self.m_panel2, wx.ID_ANY, "/r/UseScanCodes", "https://reddit.com/r/useScanCodes")
+		bSizer4.Add(link1, 0, wx.ALL | wx.ALIGN_CENTER_HORIZONTAL, 5)
+		bSizer4.Add(link2, 0, wx.ALL | wx.ALIGN_CENTER_HORIZONTAL, 5)
+		bSizer4.Add(link3, 0, wx.ALL | wx.ALIGN_CENTER_HORIZONTAL, 5)
 
 		bSizer3.Add( bSizer4, 1, wx.EXPAND, 5 )
 
