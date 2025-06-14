@@ -20,7 +20,7 @@ reported including Key Code, ASCII code, and Scan Code (in hex).
 
 To contribute or discuss the lack of scancode usage in gaming and software, join: [r/useScanCodes](https://reddit.com/r/useScanCodes)
 
-![Screenshot](https://github.com/10yard/keyboardtester/blob/main/screenshot.png)
+![Screenshot](screenshot.png)
 
 ---
 

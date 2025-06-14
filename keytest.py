@@ -23,6 +23,8 @@ class KeyTest(gui.keytest):
       self.m_uk.Hide()
     if hasattr(self, 'm_keyboard'):
       self.m_keyboard.Hide()
+    if hasattr(self, 'm_speak'):
+      self.m_speak.Hide()
 
     # Load both dicts : ext=0 and ext=1 for extended keys
     self.key_dict_normal = maps.get_key_dictionary(self, ext=0)
@@ -90,7 +92,7 @@ class KeyTest(gui.keytest):
           self.m_list.SetItem(idx, 4, event.WindowName or "")
           self.m_list.SetItem(idx, 5, event.MessageName.title().replace("Sys ", ""))
 
-          self.m_last_key.SetValue(f"{event.Key} ({event.ScanCode})")
+          self.m_last_key.SetValue(f"{event.Key} (0x{event.ScanCode:02X})")
 
         except Exception as e:
           print(f"Error logging event: {e}")
