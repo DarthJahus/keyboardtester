@@ -9,11 +9,22 @@ import win32con
 import win32gui
 
 
+import os
+import sys
+
+
+def resource_path(relative_path):
+    """Get path to resource, works for PyInstaller and normal execution"""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.abspath(relative_path)
+
+
 class KeyTest(gui.keytest):
   def __init__(self, parent):
     gui.keytest.__init__(self, parent)
 
-    self.SetIcon(wx.Icon("resources/kade.ico", wx.BITMAP_TYPE_ICO))
+    self.SetIcon(wx.Icon(resource_path("resources/kade.ico"), wx.BITMAP_TYPE_ICO))
 
     # Affiche uniquement le clavier ANSI
     self.m_us.Show()

@@ -11,6 +11,16 @@ import wx
 import wx.xrc
 import wx.adv
 
+import os
+import sys
+
+
+def resource_path(relative_path):
+    """Get path to resource, works for PyInstaller and normal execution"""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.abspath(relative_path)
+
 ###########################################################################
 ## Class keytest
 ###########################################################################
@@ -115,7 +125,7 @@ class keytest ( wx.Frame ):
 
 		self.m_KADE1 = wx.BitmapButton( self.m_uk, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 136,35 ), wx.BU_AUTODRAW|wx.BORDER_NONE|wx.BORDER_NONE )
 
-		self.m_KADE1.SetBitmap( wx.Bitmap( u"resources/keyboard.png", wx.BITMAP_TYPE_ANY ) )
+		self.m_KADE1.SetBitmap(wx.Bitmap(resource_path("resources/keyboard.png"), wx.BITMAP_TYPE_ANY ))
 		bSizer67.Add( self.m_KADE1, 0, 0, 5 )
 
 
@@ -701,7 +711,7 @@ class keytest ( wx.Frame ):
 
 		self.m_KADE2 = wx.BitmapButton( self.m_us, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 136,35 ), wx.BU_AUTODRAW|0|wx.BORDER_NONE )
 
-		self.m_KADE2.SetBitmap( wx.Bitmap( u"resources/keyboard.png", wx.BITMAP_TYPE_ANY ) )
+		self.m_KADE2.SetBitmap( wx.Bitmap( resource_path("resources/keyboard.png"), wx.BITMAP_TYPE_ANY ) )
 		bSizer671.Add( self.m_KADE2, 0, 0, 5 )
 
 
@@ -1558,7 +1568,7 @@ class AboutBox ( wx.Dialog ):
 
 		bSizer4 = wx.BoxSizer( wx.VERTICAL )
 
-		self.m_bitmap1 = wx.StaticBitmap( self.m_panel2, wx.ID_ANY, wx.Bitmap( u"resources/keyboard.png", wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_bitmap1 = wx.StaticBitmap( self.m_panel2, wx.ID_ANY, wx.Bitmap( resource_path("resources/keyboard.png"), wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer4.Add( self.m_bitmap1, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 10 )
 
 		self.m_staticText2 = wx.StaticText( self.m_panel2, wx.ID_ANY, u"A general purpose keyboard test utility by 10yard (a.k.a. Degenatrons).\nModified by Jahus (DarthJahus) to use ScanCodes instead of KeyCodes.\n\nKADE software is open and is licensed under GNU GPL V3.", wx.DefaultPosition, wx.DefaultSize, 0 )
